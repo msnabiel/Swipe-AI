@@ -25,7 +25,7 @@ export function NavBar() {
     { label: "Interviewer", href: "/interviewer" },
     {
       label: "GitHub",
-      href: "https://github.com/msnabiel/docura",
+      href: "https://github.com/msnabiel/Swipe-AI",
       external: true,
     },
   ]

@@ -257,7 +257,7 @@ useEffect(() => {
   // Step 1: Check if we have any candidate info at all
   if (!resumeParsed && !candidateInfo.name && !candidateInfo.email && !candidateInfo.phone) {
     return (
-      <Card className="max-w-md mx-auto mt-10">
+      <Card className="max-w-md mx-auto mt-10 mb-10">
         <CardHeader>
           <CardTitle>Upload Your Resume</CardTitle>
         </CardHeader>

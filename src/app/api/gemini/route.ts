@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
             }
 
             // Construct one prompt for all Q&A and ask for summary
-            prompt = `Score the following question-answer pairs on a scale of 1-10 and return JSON with two keys:
+            prompt = `Score the following question-answer pairs on a scale of 0-10 and return JSON with two keys:
             1. "results": array of objects {question, answer, score}
             2. "summary": a short feedback/overall assessment based on all answers
 
