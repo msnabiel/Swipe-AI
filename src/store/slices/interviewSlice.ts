@@ -18,6 +18,7 @@ interface InterviewState {
   answers: string[];
   timer: number;
   questions: Question[];
+  deadline: number | null; 
   inProgress: boolean; // for "Welcome Back" modal
 }
 
@@ -26,6 +27,7 @@ const initialState: InterviewState = {
   currentQuestionIndex: 0,
   answers: [],
   timer: 0,
+  deadline: null,
   questions: [],
   inProgress: false,
 };
@@ -53,6 +55,9 @@ const interviewSlice = createSlice({
     setInProgress: (state, action: PayloadAction<boolean>) => {   // <-- define reducer
       state.inProgress = action.payload;
     },
+    setDeadline: (state, action: PayloadAction<number | null>) => {   // ✅ typed
+      state.deadline = action.payload;
+    },
     resetInterview: () => initialState,
     markCompleted: (state) => {
       state.inProgress = false;
@@ -66,6 +71,7 @@ export const {
   setAnswer,
   setCurrentQuestionIndex,
   setTimer,
+  setDeadline,
 setInProgress,
   resetInterview,
   markCompleted,
