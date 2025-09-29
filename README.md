@@ -2,9 +2,14 @@
 
 Swipe-AI is an AI-powered interview management platform that allows candidates to upload resumes, answer dynamically generated technical questions, and track their interview progress in real-time. The app ensures a smooth and persistent experience, saving timers, answers, and progress locally so candidates can continue where they left off.
 
-## 
+## Flow
 ![Swipe-AI UML Diagram](/public/swipe-flow.png)
+# Screenshots
 ![Swipe-AI UML Diagram](/public/homepage.png)
+![Swipe-AI UML Diagram](/public/questions.png)
+![Swipe-AI UML Diagram](/public/resume_upload.png)
+![Swipe-AI UML Diagram](/public/welcomeback.png)
+![Swipe-AI UML Diagram](/public/dashboard.png)
 
 ## **Features**
 
