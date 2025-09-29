@@ -9,7 +9,7 @@ Swipe-AI is an AI-powered interview management platform that allows candidates t
 ![Swipe-AI UML Diagram](/public/resume_upload.png)
 ![Swipe-AI UML Diagram](/public/questions.png)
 ![Swipe-AI UML Diagram](/public/welcomeback.png)    
-![Swipe-AI UML Diagram](/public/dashboard.png)
+![Swipe-AI UML Diagram](/public/dashboard2.png)
 
 ## **Features**
 
