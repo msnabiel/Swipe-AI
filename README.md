@@ -2,7 +2,9 @@
 
 Swipe-AI is an AI-powered interview management platform that allows candidates to upload resumes, answer dynamically generated technical questions, and track their interview progress in real-time. The app ensures a smooth and persistent experience, saving timers, answers, and progress locally so candidates can continue where they left off.
 
----
+## 
+![Swipe-AI UML Diagram](/public/swipe-flow.png)
+![Swipe-AI UML Diagram](/public/homepage.png)
 
 ## **Features**
 
@@ -21,7 +23,7 @@ Swipe-AI is an AI-powered interview management platform that allows candidates t
 * **Candidate Tracking**: Scores, answers, and summaries are stored in Redux for tracking.
 * **Final Summary**: After the interview, a summarized score and chat history is saved for review.
 
----
+
 
 ## **Tech Stack**
 
@@ -31,7 +33,7 @@ Swipe-AI is an AI-powered interview management platform that allows candidates t
 * **AI Integration**: Gemini API for parsing resumes, generating questions, and scoring answers
 * **Persistence**: LocalStorage (via redux-persist)
 
----
+
 
 ## **Installation**
 
@@ -60,7 +62,7 @@ NEXT_PUBLIC_GEMINI_API_URL=<Your Gemini API endpoint>
 npm run dev
 ```
 
----
+
 
 ## **Usage**
 
@@ -71,7 +73,7 @@ npm run dev
 5. If you refresh the page or return later, the app will restore your progress and show a “Welcome Back” modal.
 6. Upon completion, your final score and summary are stored.
 
----
+
 
 ## **Future Improvements**
 
@@ -80,7 +82,7 @@ npm run dev
 * Store interview sessions in a backend database for recruiters.
 * Add AI-powered feedback for each answer.
 
----
+
 
 ## **Contributing**
 
@@ -92,10 +94,10 @@ Contributions are welcome!
 4. Push to the branch: `git push origin feature/your-feature`
 5. Open a Pull Request
 
----
+
 
 ## **License**
 
 MIT License © 2025 Nabiel
 
----
+

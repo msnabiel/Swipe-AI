@@ -25,8 +25,8 @@ export interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({
   logo = <span className="font-bold text-xl">Swipe AI</span>,
   links = [
-    { label: "Docs", href: "/docs/introduction" },
-    { label: "API", href: "/chat" },
+    { label: "Interviewee", href: "/interviewee" },
+    { label: "Interviewer", href: "/interviewer" },
     { label: "GitHub", href: "https://github.com/msnabiel/Swipe-AI", external: true },
   ],
   contactEmail = "msyednabiel@gmail.com",
@@ -47,7 +47,7 @@ export const Footer: React.FC<FooterProps> = ({
             {logo}
           </Link>
           <p className="text-sm">
-            Swipe AI helps you turn documents into intelligent assistants using cutting-edge RAG and local embeddings.
+            Swipe-AI transforms interviews into intelligent experiences using AI-powered question generation, real-time scoring, and progress persistence.
           </p>
         </div>
 
@@ -62,24 +62,6 @@ export const Footer: React.FC<FooterProps> = ({
                 </Link>
               </li>
             ))}
-          </ul>
-          <h3 className="text-sm font-semibold mt-6 mb-2 text-foreground">Legal</h3>
-          <ul className="space-y-1">
-            <li>
-              <Link href="/legal/terms" className="hover:text-foreground transition">
-                Terms & Conditions
-              </Link>
-            </li>
-            <li>
-              <Link href="/legal/privacy" className="hover:text-foreground transition">
-                Privacy Policy
-              </Link>
-            </li>
-            <li>
-              <Link href="/legal/cookies" className="hover:text-foreground transition">
-                Cookie Policy
-              </Link>
-            </li>
           </ul>
         </div>
 

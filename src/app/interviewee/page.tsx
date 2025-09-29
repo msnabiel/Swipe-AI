@@ -287,64 +287,63 @@ const handleContinueInterview = () => {
   };
 
   // Score all answers when interview is completed
-  useEffect(() => {
+useEffect(() => {
+  if (
+    questions.length &&
+    answers.length === questions.length &&
+    answers.every(a => a !== undefined) &&
+    !hasCompletedScoring
+  ) {
+    setHasCompletedScoring(true);
+
     const sendAllScores = async () => {
-      if (
-        questions.length &&
-        answers.length === questions.length &&
-        answers.every(a => a !== undefined) &&
-        !hasCompletedScoring
-      ) {
-        setHasCompletedScoring(true);
-        
-        try {
-          const payload = questions.map((q, idx) => ({
-            question: q.text,
-            answer: answers[idx] || "",
-          }));
+      try {
+        const payload = questions.map((q, idx) => ({
+          question: q.text,
+          answer: answers[idx] || "",
+        }));
 
-          const res = await fetch('/api/gemini', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ task: 'score_answer', answers: payload }),
-          });
+        const res = await fetch('/api/gemini', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ task: 'score_answer', answers: payload }),
+        });
 
-          const scoreData: ScoreData = await res.json();
-          console.log("Raw Generated Text:", scoreData);
+        const scoreData: ScoreData = await res.json();
+        console.log("Raw Generated Text:", scoreData);
 
-          const finalScore = scoreData.results.reduce((sum, r) => sum + r.score, 0);
+        const finalScore = scoreData.results.reduce((sum, r) => sum + r.score, 0);
 
-          const chat = scoreData.results.map(r => ({
-            question: r.question,
-            answer: r.answer,
-            score: r.score,
-          }));
+        const chat = scoreData.results.map(r => ({
+          question: r.question,
+          answer: r.answer,
+          score: r.score,
+        }));
 
-          const finalSummary = scoreData.summary;
+        const finalSummary = scoreData.summary;
 
-          dispatch(
-            addCandidate({
-              id: Date.now().toString(),
-              name: candidateInfo.name || '',
-              email: candidateInfo.email || '',
-              phone: candidateInfo.phone || '',
-              finalScore,
-              finalSummary,
-              chat,
-            })
-          );
+        dispatch(
+          addCandidate({
+            id: Date.now().toString(),
+            name: candidateInfo.name || '',
+            email: candidateInfo.email || '',
+            phone: candidateInfo.phone || '',
+            finalScore,
+            finalSummary,
+            chat,
+          })
+        );
 
-          dispatch(markCompleted());
-
-          console.log("Candidate added to Redux");
-        } catch (err) {
-          console.error("Failed to score answers:", err);
-        }
+        dispatch(markCompleted());
+        console.log("Candidate added to Redux");
+      } catch (err) {
+        console.error("Failed to score answers:", err);
       }
     };
 
     sendAllScores();
-  }, [currentQuestionIndex, questions.length, answers, hasCompletedScoring]);
+  }
+}, [answers.length, questions.length, hasCompletedScoring]);
 
   // Welcome Back Modal
   if (showWelcomeBack) {
@@ -381,22 +380,32 @@ const handleContinueInterview = () => {
   // Step 1: Upload resume
   if (!resumeParsed && !candidateInfo.name && !candidateInfo.email && !candidateInfo.phone) {
     return (
-      <Card className="max-w-md mx-auto mt-10">
-        <CardHeader>
-          <CardTitle>Upload Your Resume</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <input 
-            type="file" 
-            accept=".pdf,.docx" 
-            onChange={(e) => setFile(e.target.files?.[0] || null)} 
-            className="mb-4"
-          />
-          <Button onClick={handleFileUpload} disabled={!file || loading}>
-            {loading ? 'Processing...' : 'Upload & Start Interview'}
-          </Button>
-        </CardContent>
-      </Card>
+<Card className="max-w-md mx-auto mt-10 bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 rounded-2xl shadow-lg p-6 border border-gray-100">
+  <CardHeader>
+    <CardTitle className="text-2xl font-semibold text-gray-800">
+      Upload Your Resume
+    </CardTitle>
+  </CardHeader>
+  <CardContent className="flex flex-col gap-4">
+    <input 
+      type="file" 
+      accept=".pdf,.docx" 
+      onChange={(e) => setFile(e.target.files?.[0] || null)} 
+      className="px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-200 transition-colors bg-white text-gray-700"
+    />
+    <Button 
+      onClick={handleFileUpload} 
+      disabled={!file || loading}
+      className={`w-full py-2 rounded-lg font-medium transition-colors 
+                  ${loading 
+                    ? 'bg-purple-100 text-purple-400 cursor-not-allowed' 
+                    : 'bg-purple-200 hover:bg-purple-300 text-purple-800'}`}
+    >
+      {loading ? 'Processing...' : 'Upload & Start Interview'}
+    </Button>
+  </CardContent>
+</Card>
+
     );
   }
 
