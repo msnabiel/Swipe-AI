@@ -58,7 +58,7 @@ npm install
 3. Set environment variables:
 
 ```env
-NEXT_PUBLIC_GEMINI_API_URL=<Your Gemini API endpoint>
+GOOGLE_KEY=<Your Gemini API endpoint>
 ```
 
 4. Run the development server:
