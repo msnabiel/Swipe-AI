@@ -2,6 +2,7 @@
 import { motion } from "framer-motion"
 import { ArrowRight} from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link";
 const stagger = {
   hidden: {},
   show: {
@@ -37,7 +38,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-4xl sm:text-6xl font-bold tracking-tight"
           >
-            Works like <span className="text-primary">magic</span>, <br className="hidden sm:block"/> thinks like your accountant
+            Interviews Made <span className="text-primary">Effortless</span>, <br className="hidden sm:block"/> Evaluations Made Smarter
           </motion.h1>
 
           {/* Supporting copy */}
@@ -47,8 +48,8 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-lg sm:text-xl text-muted-foreground max-w-lg mx-auto md:mx-0"
           >
-            From auto-fills to error checks, <span className="font-semibold text-foreground">Swipe AI AI</span> handles the details with precision —
-            helping you move faster, stay compliant, and focus on the big picture.
+            From resume parsing to AI-driven question generation, <span className="font-semibold text-foreground">Swipe AI AI</span> handles the details with precision —
+            helping recruiters save time, candidates stay focused, and teams make better hiring decisions.
           </motion.p>
 
           {/* CTAs */}
@@ -58,12 +59,17 @@ export default function Home() {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
           >
+            <Link href="/interviewer">
             <Button size="lg">
-              See Swipe AI AI in Action <ArrowRight className="ml-2 h-5 w-5" />
+              Interviewee
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
+            </Link>
+            <Link href="/interviewee">
             <Button size="lg" variant="outline">
-              Automate Your Workflow – 7 Days Free
+              Interviewer
             </Button>
+            </Link>
           </motion.div>
 
           {/* Social Proof */}
