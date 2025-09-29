@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/dialog";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store";
-import { deleteCandidate } from "@/store/candidatesSlice"; // Import the delete action
+import { deleteCandidate } from "@/store/slices/candidateSlice"; // Import the delete action
 
 // Types
 interface CandidateSummary {

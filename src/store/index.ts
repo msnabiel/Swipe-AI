@@ -3,7 +3,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
 import candidateReducer from './slices/candidateSlice';
-
+import interviewReducer from './slices/interviewSlice';
 const persistConfig = {
   key: 'root',
   storage,
@@ -11,6 +11,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   candidates: candidateReducer,
+  interview: interviewReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

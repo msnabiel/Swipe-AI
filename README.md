@@ -99,7 +99,3 @@ Contributions are welcome!
 MIT License © 2025 Nabiel
 
 ---
-
-If you want, I can **also make a “Getting Started GIF demo section”** showing the candidate flow—this makes the README much more attractive to recruiters or collaborators.
-
-Do you want me to add that?
