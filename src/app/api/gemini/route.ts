@@ -7,6 +7,25 @@ const GOOGLE_KEY = process.env.GOOGLE_KEY || "AIzaSyDNsEts94dlqKVDcNFVdLT5XPe8p3
 const ai = new GoogleGenAI({
   apiKey: GOOGLE_KEY,
 });
+async function retry<T>(
+  fn: () => Promise<T>,
+  retries = 3,
+  delayMs = 1000
+): Promise<T> {
+  let lastError: unknown;
+  for (let i = 0; i < retries; i++) {
+    try {
+      return await fn();
+    } catch (err) {
+      lastError = err;
+      console.warn(`Attempt ${i + 1} failed. Retrying in ${delayMs}ms...`);
+      await new Promise((res) => setTimeout(res, delayMs));
+    }
+  }
+  // Optionally narrow type if you want to throw as Error
+  if (lastError instanceof Error) throw lastError;
+  throw new Error("Unknown error occurred during retry");
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -32,7 +51,7 @@ export async function POST(req: NextRequest) {
             }
 
             // Construct one prompt for all Q&A and ask for summary
-            prompt = `Score the following question-answer pairs on a scale of 1-10 and return JSON with two keys:
+            prompt = `Score the following question-answer pairs on a scale of 0-10 and return JSON with two keys:
             1. "results": array of objects {question, answer, score}
             2. "summary": a short feedback/overall assessment based on all answers
 
@@ -47,10 +66,14 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ error: "Unknown task" }, { status: 400 });
     }
 
-    const response = await ai.models.generateContent({
+  const response = await retry(() =>
+    ai.models.generateContent({
       model: "gemini-2.5-flash",
       contents: prompt,
-    });
+    }),
+    3,
+    1000
+  );
 
     // Parsing JSON if needed
     if (task === "generate_interview_questions" || task === "score_answer") {

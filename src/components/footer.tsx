@@ -27,14 +27,14 @@ export const Footer: React.FC<FooterProps> = ({
   links = [
     { label: "Docs", href: "/docs/introduction" },
     { label: "API", href: "/chat" },
-    { label: "GitHub", href: "https://github.com/msnabiel/docura", external: true },
+    { label: "GitHub", href: "https://github.com/msnabiel/Swipe-AI", external: true },
   ],
   contactEmail = "msyednabiel@gmail.com",
   social = {
     instagram: "https://instagram.com/docura_ai",
     twitter: "https://twitter.com/docura_ai",
     facebook: "https://facebook.com/docura.ai",
-    github: "https://github.com/msnabiel/docura",
+    github: "https://github.com/msnabiel/Swipe-AI",
     linkedin: "https://linkedin.com/in/msnabiel",
   },
 }) => {
