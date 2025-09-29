@@ -17,6 +17,7 @@ Swipe-AI is an AI-powered interview management platform that allows candidates t
 
 * **Resume Upload**: Candidates upload their resume in PDF or DOCX format.
 * **AI-Powered Parsing**: The system extracts name, email, and phone number automatically.
+* **Missing Info**: Asks for missing info, if any.
 * **Dynamic Interview Questions**: Interview questions are generated via AI (Gemini API) based on role and difficulty.
 * **Timed Questions**: Each question has a timer depending on difficulty (Easy: 20s, Medium: 60s, Hard: 120s).
 * **Answer Submission**: Candidates submit answers which are scored automatically by AI.
