@@ -2,7 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GoogleGenAI } from "@google/genai";
 
-const GOOGLE_KEY = process.env.GOOGLE_KEY || "YOUR_API_KEY_HERE";
+const GOOGLE_KEY = process.env.GOOGLE_KEY || "YOUR_API_KEY";
 
 const ai = new GoogleGenAI({
   apiKey: GOOGLE_KEY,

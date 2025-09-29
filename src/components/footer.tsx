@@ -96,7 +96,7 @@ export const Footer: React.FC<FooterProps> = ({
       </div>
 
       <div className="border-t text-center py-4 text-xs">
-        &copy; {new Date().getFullYear()} Docura. All rights reserved.
+        &copy; {new Date().getFullYear()} Swipe AI. All rights reserved.
       </div>
     </footer>
   )

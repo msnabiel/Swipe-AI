@@ -11,7 +11,6 @@ const stagger = {
     },
   },
 }
-import SplineScene from "@/components/spline";
 
 export default function Home() {
   
