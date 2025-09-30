@@ -16,7 +16,7 @@ Swipe-AI is an AI-powered interview management platform that allows candidates t
 ### **Candidate Experience**
 
 * **Resume Upload**: Candidates upload their resume in PDF or DOCX format.
-* **AI-Powered Parsing**: The system extracts name, email, and phone number automatically.
+* **Parsing/Text Extraction**: The system extracts name, email, and phone number automatically.
 * **Missing Info**: Asks for missing info, if any.
 * **Text Extration**: Python Backend for text extraction. (https://docura-parser.onrender.com) Github: https://github.com/msnabiel/docura-parser
 * **Dynamic Interview Questions**: Interview questions are generated via AI (Gemini API) based on role and difficulty.
